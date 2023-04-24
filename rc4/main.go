@@ -2,17 +2,17 @@ package main
 
 import (
 	"bytes"
+	"crypto/rc4"
 	"encoding/base64"
 	"flag"
 	"fmt"
 	"io"
 	"os"
-	"crypto/rc4"
 )
 
 var (
 	decodeBase64 bool
-	key string
+	key          string
 )
 
 func printUsage() {
@@ -24,7 +24,7 @@ func printUsage() {
 
 func main() {
 	flag.Usage = printUsage
-	flag.StringVar(&key, "k", "", "The key used to initialize the cipher state." +
+	flag.StringVar(&key, "k", "", "The key used to initialize the cipher state."+
 		"\nWill be read from the RC4_KEY environment variable if not specified.")
 	flag.BoolVar(&decodeBase64, "b64", false, "Decode input data from base64.")
 	flag.Parse()
@@ -34,7 +34,7 @@ func main() {
 		flag.Usage()
 		return
 	}
-	
+
 	if len(key) == 0 {
 		key = os.Getenv("RC4_KEY")
 		if len(key) == 0 {
