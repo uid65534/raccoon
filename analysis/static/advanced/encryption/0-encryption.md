@@ -5,6 +5,6 @@ There is a function in the malware that decrypts most of the strings and stores 
 
 ## [1. The decryption process](1-decryption-process.md)
 
-## [2. Back-tracing encrypted strings](2-back-tracing)
+## [2. Back-tracing encrypted strings](2-back-tracing.md)
 
-## [3. Decrypting strings](3-decrypting-strings)
+## [3. Decrypting strings](3-decrypting-strings.md)
